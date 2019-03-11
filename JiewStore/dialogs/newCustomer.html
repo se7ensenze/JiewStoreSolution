@@ -1,0 +1,45 @@
+﻿<md-dialog aria-label="New Customer">
+    <form>
+        <md-toolbar>
+            <div class="md-dialog-content">New Customer</div>
+        </md-toolbar>
+        <md-dialog-content class="md-dialog-content">
+            <md-input-container class="md-block">
+                <label>Nick Name</label>
+                <input ng-model="newCustomer.nickName">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Full Name</label>
+                <input ng-model="newCustomer.fullName">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Facebook</label>
+                <input ng-model="newCustomer.facebook">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Facebook</label>
+                <input ng-model="newCustomer.phone">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Birth date</label>
+                <md-datepicker ng-model="newCustomer.birthDate"></md-datepicker>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Full Name</label>
+                <input ng-model="newCustomer.address">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>First Time Amount</label>
+                <input ng-model="newCustomer.amount">
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised" ng-click="answer('OK')">
+                OK
+            </md-button>
+            <md-button class="md-raised" ng-click="answer('Cancel')">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

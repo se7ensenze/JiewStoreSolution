@@ -1,0 +1,12 @@
+﻿<md-content layout="column" flex ng-controller="parameterController" ng-init="init()" ng-cloak>
+    <md-container>
+        <input ng-model="pointPerAmount" />
+    </md-container>
+    <md-container>
+        <md-list>
+            <md-list-item ng-repeat="t in tierLevels">
+                {{t.id}} :: {{t.name}} 
+            </md-list-item>
+        </md-list>
+    </md-container>
+</md-content>

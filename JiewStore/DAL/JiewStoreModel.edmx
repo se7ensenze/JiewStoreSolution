@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JiewStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="CustomerTierID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerTiers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MinAmount" Type="real" Nullable="false" />
+          <Property Name="MaxAmount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parameters">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="RecordTime" Type="datetime" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+          <Property Name="PointPerAmount" Type="real" Nullable="false" />
+          <Property Name="PointMultiplier" Type="real" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Customers_CustomerTiers">
+          <End Role="CustomerTiers" Type="Self.CustomerTiers" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTiers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CustomerTierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JiewStoreModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTiers" EntityType="Self.CustomerTiers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parameters" EntityType="Self.Parameters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customers_CustomerTiers" Association="Self.FK_Customers_CustomerTiers">
+            <End Role="CustomerTiers" EntitySet="CustomerTiers" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Customers" Association="Self.FK_Transactions_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JiewStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JiewStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="JiewStoreModel.Customer" />
+          <EntitySet Name="Transactions" EntityType="JiewStoreModel.Transaction" />
+          <AssociationSet Name="FK_Transactions_Customers" Association="JiewStoreModel.FK_Transactions_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="CustomerTiers" EntityType="JiewStoreModel.CustomerTier" />
+          <EntitySet Name="Parameters" EntityType="JiewStoreModel.Parameter" />
+          <AssociationSet Name="FK_Customers_CustomerTiers" Association="JiewStoreModel.FK_Customers_CustomerTiers">
+            <End Role="CustomerTier" EntitySet="CustomerTiers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Transactions" Relationship="JiewStoreModel.FK_Transactions_Customers" FromRole="Customer" ToRole="Transaction" />
+          <Property Name="CustomerTierID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CustomerTier" Relationship="JiewStoreModel.FK_Customers_CustomerTiers" FromRole="Customer" ToRole="CustomerTier" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="RecordTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Point" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <Property Name="PointPerAmount" Type="Single" Nullable="false" />
+          <Property Name="PointMultiplier" Type="Single" Nullable="false" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="JiewStoreModel.FK_Transactions_Customers" FromRole="Transaction" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Transactions_Customers">
+          <End Type="JiewStoreModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="JiewStoreModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerTier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MinAmount" Type="Single" Nullable="false" />
+          <Property Name="MaxAmount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="JiewStoreModel.FK_Customers_CustomerTiers" FromRole="CustomerTier" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Parameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Single" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Customers_CustomerTiers">
+          <End Type="JiewStoreModel.CustomerTier" Role="CustomerTier" Multiplicity="1" />
+          <End Type="JiewStoreModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CustomerTierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JiewStoreModelStoreContainer" CdmEntityContainer="JiewStoreEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="JiewStoreModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerTierID" ColumnName="CustomerTierID" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="JiewStoreModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PointMultiplier" ColumnName="PointMultiplier" />
+                <ScalarProperty Name="PointPerAmount" ColumnName="PointPerAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTiers">
+            <EntityTypeMapping TypeName="JiewStoreModel.CustomerTier">
+              <MappingFragment StoreEntitySet="CustomerTiers">
+                <ScalarProperty Name="MaxAmount" ColumnName="MaxAmount" />
+                <ScalarProperty Name="MinAmount" ColumnName="MinAmount" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parameters">
+            <EntityTypeMapping TypeName="JiewStoreModel.Parameter">
+              <MappingFragment StoreEntitySet="Parameters">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

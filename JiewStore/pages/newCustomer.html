@@ -1,0 +1,68 @@
+﻿<md-content ng-controller="newCustomerController" 
+            class="md-padding" 
+            layout-xs="column" layout="row" 
+            layout-align="center center" 
+            flex>
+    <div flex-xs flex-gt-xs="60" layout="column" layout-align="center center">
+        <md-card style="width:500px;overflow-y: auto">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Add New Customer</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form>
+                <div class="md-padding" layout-align="center">
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Nick Name</label>
+                            <input ng-model="newCustomer.nickName">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Full Name</label>
+                            <input ng-model="newCustomer.fullName">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Facebook</label>
+                            <input ng-model="newCustomer.facebook">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Phone</label>
+                            <input ng-model="newCustomer.phone">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Birth date</label>
+                            <md-datepicker ng-model="newCustomer.birthDate"></md-datepicker>
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Address</label>
+                            <input ng-model="newCustomer.address">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>First Time Amount</label>
+                            <input ng-model="newCustomer.amount">
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <md-button class="md-raised" ng-click="save()">
+                                Add
+                            </md-button>
+                        </md-input-container>
+                    </div>
+                </div>
+            </form>
+        </md-card>
+    </div>
+</md-content>

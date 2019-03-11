@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FCB830A2-98F8-4BD9-B6CC-6D3C350EACAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JiewStore</RootNamespace>
+    <AssemblyName>JiewStore</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AddBuyAmountResultDto.cs" />
+    <Compile Include="Controllers\BirthMonthBonusPointCondition.cs" />
+    <Compile Include="Controllers\CustomerFacade.cs" />
+    <Compile Include="Controllers\CustomerHelper.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\IPointCalculator.cs" />
+    <Compile Include="Controllers\JiewPointCalculator.cs" />
+    <Compile Include="Controllers\ParameterController.cs" />
+    <Compile Include="Controllers\ParameterFacade.cs" />
+    <Compile Include="Controllers\TransactionHelper.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAL\Customer.cs">
+      <DependentUpon>JiewStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CustomerTier.cs">
+      <DependentUpon>JiewStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\JiewStoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JiewStoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\JiewStoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JiewStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\JiewStoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JiewStoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Parameter.cs">
+      <DependentUpon>JiewStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Transaction.cs">
+      <DependentUpon>JiewStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDto.cs" />
+    <Compile Include="Models\CustomerInfoRequest.cs" />
+    <Compile Include="Models\CustomerInfoResult.cs" />
+    <Compile Include="Models\GetCustomerInfo.cs" />
+    <Compile Include="Models\GetCustomerPagingInfo.cs" />
+    <Compile Include="Models\ICustomer.cs" />
+    <Compile Include="Models\NewCustomerInfo.cs" />
+    <Compile Include="Models\ParameterDto.cs" />
+    <Compile Include="Models\RedeemRequest.cs" />
+    <Compile Include="Models\RedeemResultDto.cs" />
+    <Compile Include="Models\TierLevelDto.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\app.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bulma-0.7.4\css\bulma.css" />
+    <Content Include="Content\bulma-0.7.4\css\bulma.min.css" />
+    <Content Include="Content\fonts\ui-grid.svg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\SVG\_abra.svg" />
+    <Content Include="Content\SVG\_AR.svg" />
+    <Content Include="Content\SVG\_Articuno.svg" />
+    <Content Include="Content\SVG\_Articuro Pokeball.svg" />
+    <Content Include="Content\SVG\_Bag.svg" />
+    <Content Include="Content\SVG\_Ball.svg" />
+    <Content Include="Content\SVG\_Battle.svg" />
+    <Content Include="Content\SVG\_bellsprout.svg" />
+    <Content Include="Content\SVG\_Berries.svg" />
+    <Content Include="Content\SVG\_Bookmark.svg" />
+    <Content Include="Content\SVG\_Boy Pokemon Virtual Reality.svg" />
+    <Content Include="Content\SVG\_Boy Virtual Reality.svg" />
+    <Content Include="Content\SVG\_bulbasaur.svg" />
+    <Content Include="Content\SVG\_Canister Egg.svg" />
+    <Content Include="Content\SVG\_Catch Pokemon.svg" />
+    <Content Include="Content\SVG\_caterpie.svg" />
+    <Content Include="Content\SVG\_charmander.svg" />
+    <Content Include="Content\SVG\_Coin Bag.svg" />
+    <Content Include="Content\SVG\_Coin Bucket.svg" />
+    <Content Include="Content\SVG\_Coin.svg" />
+    <Content Include="Content\SVG\_Coins.svg" />
+    <Content Include="Content\SVG\_Computer.svg" />
+    <Content Include="Content\SVG\_Container Numbered.svg" />
+    <Content Include="Content\SVG\_Container.svg" />
+    <Content Include="Content\SVG\_Containers.svg" />
+    <Content Include="Content\SVG\_Crown.svg" />
+    <Content Include="Content\SVG\_Crystal.svg" />
+    <Content Include="Content\SVG\_Direction.svg" />
+    <Content Include="Content\SVG\_dratini.svg" />
+    <Content Include="Content\SVG\_eevee.svg" />
+    <Content Include="Content\SVG\_Egg Canister.svg" />
+    <Content Include="Content\SVG\_Egg numbered.svg" />
+    <Content Include="Content\SVG\_Egg.svg" />
+    <Content Include="Content\SVG\_Eggs.svg" />
+    <Content Include="Content\SVG\_Favourite.svg" />
+    <Content Include="Content\SVG\_fight.svg" />
+    <Content Include="Content\SVG\_Footsteps.svg" />
+    <Content Include="Content\SVG\_Girl Pokemon Virtual Reality.svg" />
+    <Content Include="Content\SVG\_Girl Virtual Reality.svg" />
+    <Content Include="Content\SVG\_Gotcha.svg" />
+    <Content Include="Content\SVG\_Great Ball.svg" />
+    <Content Include="Content\SVG\_hatching egg.svg" />
+    <Content Include="Content\SVG\_jigglypuff.svg" />
+    <Content Include="Content\SVG\_Location.svg" />
+    <Content Include="Content\SVG\_Love Pokemon Virtual Reality.svg" />
+    <Content Include="Content\SVG\_Love Virtual Reality.svg" />
+    <Content Include="Content\SVG\_mankey.svg" />
+    <Content Include="Content\SVG\_Master Ball.svg" />
+    <Content Include="Content\SVG\_Medicine.svg" />
+    <Content Include="Content\SVG\_meowth.svg" />
+    <Content Include="Content\SVG\_mew.svg" />
+    <Content Include="Content\SVG\_Mobile Phone.svg" />
+    <Content Include="Content\SVG\_Moltres.svg" />
+    <Content Include="Content\SVG\_Moltros Pokeball.svg" />
+    <Content Include="Content\SVG\_Open Pokeball.svg" />
+    <Content Include="Content\SVG\_Paralyz Heal.svg" />
+    <Content Include="Content\SVG\_pidgey.svg" />
+    <Content Include="Content\SVG\_pikachu.svg" />
+    <Content Include="Content\SVG\_Poison Heal.svg" />
+    <Content Include="Content\SVG\_Poke Go.svg" />
+    <Content Include="Content\SVG\_poke trainer three star.svg" />
+    <Content Include="Content\SVG\_poke trainer two star.svg" />
+    <Content Include="Content\SVG\_Pokeball.svg" />
+    <Content Include="Content\SVG\_Pokeballs.svg" />
+    <Content Include="Content\SVG\_Pokecenter.svg" />
+    <Content Include="Content\SVG\_Pokedex tool.svg" />
+    <Content Include="Content\SVG\_Pokedex.svg" />
+    <Content Include="Content\SVG\_pokemon articuro.svg" />
+    <Content Include="Content\SVG\_Pokemon Egg.svg" />
+    <Content Include="Content\SVG\_Pokemon Exchange.svg" />
+    <Content Include="Content\SVG\_Pokemon Go Arrow.svg" />
+    <Content Include="Content\SVG\_Pokemon Go Locator.svg" />
+    <Content Include="Content\SVG\_Pokemon Go Numbered.svg" />
+    <Content Include="Content\SVG\_Pokemon Go.svg" />
+    <Content Include="Content\SVG\_Pokemon Location.svg" />
+    <Content Include="Content\SVG\_pokemon moltres.svg" />
+    <Content Include="Content\SVG\_pokemon pokecenter.svg" />
+    <Content Include="Content\SVG\_Pokemon Trainer Boy.svg" />
+    <Content Include="Content\SVG\_Pokemon Trainer Girl.svg" />
+    <Content Include="Content\SVG\_Pokemon View Virtual Reality.svg" />
+    <Content Include="Content\SVG\_pokemon zapdos.svg" />
+    <Content Include="Content\SVG\_Pokemon.svg" />
+    <Content Include="Content\SVG\_Potion.svg" />
+    <Content Include="Content\SVG\_psyduck.svg" />
+    <Content Include="Content\SVG\_rattata.svg" />
+    <Content Include="Content\SVG\_Settings.svg" />
+    <Content Include="Content\SVG\_Shopping Bag.svg" />
+    <Content Include="Content\SVG\_snorlax.svg" />
+    <Content Include="Content\SVG\_squirtle.svg" />
+    <Content Include="Content\SVG\_storm.svg" />
+    <Content Include="Content\SVG\_Swarm.svg" />
+    <Content Include="Content\SVG\_Time.svg" />
+    <Content Include="Content\SVG\_Ultra Ball.svg" />
+    <Content Include="Content\SVG\_venonat.svg" />
+    <Content Include="Content\SVG\_Virtual Reality Pokemon.svg" />
+    <Content Include="Content\SVG\_weedle.svg" />
+    <Content Include="Content\SVG\_windy.svg" />
+    <Content Include="Content\SVG\_Zapdos Pokeball.svg" />
+    <Content Include="Content\SVG\_Zapdos.svg" />
+    <Content Include="Content\SVG\_zubat.svg" />
+    <Content Include="Content\ui-grid.css" />
+    <Content Include="Content\ui-grid.min.css" />
+    <Content Include="DAL\JiewStoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JiewStoreModel.edmx</DependentUpon>
+      <LastGenOutput>JiewStoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\JiewStoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JiewStoreModel.edmx</DependentUpon>
+      <LastGenOutput>JiewStoreModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="dialogs\newCustomer.html" />
+    <Content Include="dialogs\NewCustomerDialog.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Index.html" />
+    <Content Include="pages\customers.html" />
+    <Content Include="pages\home.html" />
+    <Content Include="pages\newCustomer.html" />
+    <Content Include="pages\newOrder.html" />
+    <Content Include="pages\parameters.html" />
+    <Content Include="pages\redeem.html" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-material.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\controller\customerController.js" />
+    <Content Include="Scripts\controller\newCustomerController.js" />
+    <Content Include="Scripts\controller\newOrderController.js" />
+    <Content Include="Scripts\controller\parameterController.js" />
+    <Content Include="Scripts\controller\redeemController.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.all.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.all.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ar.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ar.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.bg.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.bg.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.cs.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.cs.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.da.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.da.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.de.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.de.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.es-ct.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.es-ct.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.es.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.es.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fa.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fa.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fi.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fi.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fr.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.fr.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.he.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.he.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.hy.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.hy.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.is.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.is.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.it.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.it.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ja.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ja.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ko.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ko.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.nl.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.nl.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.no.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.no.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pl.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pl.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pt-br.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pt-br.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pt.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.pt.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ro.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ro.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.rs-lat.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.rs-lat.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ru.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ru.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.sk.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.sk.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.sv.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.sv.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ta.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ta.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.tr.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.tr.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ua.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.ua.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.zh-cn.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.zh-cn.min.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.zh-tw.js" />
+    <Content Include="Scripts\i18n\ui-grid.language.zh-tw.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <EntityDeploy Include="DAL\JiewStoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JiewStoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\JiewStoreModel.edmx.diagram">
+      <DependentUpon>JiewStoreModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="json.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\services\customerService.js" />
+    <Content Include="Scripts\services\parameterService.js" />
+    <Content Include="Scripts\ui-grid.auto-resize.js" />
+    <Content Include="Scripts\ui-grid.auto-resize.min.js" />
+    <Content Include="Scripts\ui-grid.base.js" />
+    <Content Include="Scripts\ui-grid.base.min.js" />
+    <Content Include="Scripts\ui-grid.cellnav.js" />
+    <Content Include="Scripts\ui-grid.cellnav.min.js" />
+    <Content Include="Scripts\ui-grid.core.js" />
+    <Content Include="Scripts\ui-grid.core.min.js" />
+    <Content Include="Scripts\ui-grid.edit.js" />
+    <Content Include="Scripts\ui-grid.edit.min.js" />
+    <Content Include="Scripts\ui-grid.empty-base-layer.js" />
+    <Content Include="Scripts\ui-grid.empty-base-layer.min.js" />
+    <Content Include="Scripts\ui-grid.expandable.js" />
+    <Content Include="Scripts\ui-grid.expandable.min.js" />
+    <Content Include="Scripts\ui-grid.exporter.js" />
+    <Content Include="Scripts\ui-grid.exporter.min.js" />
+    <Content Include="Scripts\ui-grid.grouping.js" />
+    <Content Include="Scripts\ui-grid.grouping.min.js" />
+    <Content Include="Scripts\ui-grid.importer.js" />
+    <Content Include="Scripts\ui-grid.importer.min.js" />
+    <Content Include="Scripts\ui-grid.infinite-scroll.js" />
+    <Content Include="Scripts\ui-grid.infinite-scroll.min.js" />
+    <Content Include="Scripts\ui-grid.js" />
+    <Content Include="Scripts\ui-grid.min.js" />
+    <Content Include="Scripts\ui-grid.move-columns.js" />
+    <Content Include="Scripts\ui-grid.move-columns.min.js" />
+    <Content Include="Scripts\ui-grid.pagination.js" />
+    <Content Include="Scripts\ui-grid.pagination.min.js" />
+    <Content Include="Scripts\ui-grid.pinning.js" />
+    <Content Include="Scripts\ui-grid.pinning.min.js" />
+    <Content Include="Scripts\ui-grid.resize-columns.js" />
+    <Content Include="Scripts\ui-grid.resize-columns.min.js" />
+    <Content Include="Scripts\ui-grid.row-edit.js" />
+    <Content Include="Scripts\ui-grid.row-edit.min.js" />
+    <Content Include="Scripts\ui-grid.saveState.js" />
+    <Content Include="Scripts\ui-grid.saveState.min.js" />
+    <Content Include="Scripts\ui-grid.selection.js" />
+    <Content Include="Scripts\ui-grid.selection.min.js" />
+    <Content Include="Scripts\ui-grid.tree-base.js" />
+    <Content Include="Scripts\ui-grid.tree-base.min.js" />
+    <Content Include="Scripts\ui-grid.tree-view.js" />
+    <Content Include="Scripts\ui-grid.tree-view.min.js" />
+    <Content Include="Scripts\ui-grid.validate.js" />
+    <Content Include="Scripts\ui-grid.validate.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\less\variables.less" />
+    <Content Include="Content\less\validate\less\validate.less" />
+    <Content Include="Content\less\tree-view\less\tree-view.less" />
+    <Content Include="Content\less\tree-base\less\tree-base.less" />
+    <Content Include="Content\less\sorting.less" />
+    <Content Include="Content\less\selection\less\selection.less" />
+    <Content Include="Content\less\rtl.less" />
+    <Content Include="Content\less\row-edit\less\rowEdit.less" />
+    <Content Include="Content\less\resize-columns\less\column-resizer.less" />
+    <Content Include="Content\less\pinning\less\pinning.less" />
+    <Content Include="Content\less\pagination\less\pagination.less" />
+    <Content Include="Content\less\move-columns\less\colMovable.less" />
+    <Content Include="Content\less\menu.less" />
+    <Content Include="Content\less\main.less" />
+    <Content Include="Content\less\importer\less\importer.less" />
+    <Content Include="Content\less\icons.less" />
+    <Content Include="Content\less\header.less" />
+    <Content Include="Content\less\grouping\less\grouping.less" />
+    <Content Include="Content\less\grid.less" />
+    <Content Include="Content\less\goups.less" />
+    <Content Include="Content\less\footer.less" />
+    <Content Include="Content\less\exporter\less\exporter.less" />
+    <Content Include="Content\less\expandable\less\expandable.less" />
+    <Content Include="Content\less\empty-base-layer\less\emptyBaseLayer.less" />
+    <Content Include="Content\less\elements.less" />
+    <Content Include="Content\less\edit\less\edit.less" />
+    <Content Include="Content\less\core.less" />
+    <Content Include="Content\less\cellnav\less\cellNav.less" />
+    <Content Include="Content\less\cell.less" />
+    <Content Include="Content\less\bootstrap\bootstrap.less" />
+    <Content Include="Content\less\body.less" />
+    <Content Include="Content\less\animation.less" />
+    <Content Include="Content\fonts\ui-grid.woff" />
+    <Content Include="Content\fonts\ui-grid.ttf" />
+    <Content Include="Content\fonts\ui-grid.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55966</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55966/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

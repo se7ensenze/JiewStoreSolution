@@ -1,0 +1,52 @@
+﻿<md-content layout-padding ng-controller="newCustomerController">
+    <div>
+        <form name="userForm">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>First Amount</label>
+                    <input ng-model="newCustomer.amount" md-select-on-focus 
+                           required ng-pattern="/^[0-9]{10}$/">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nick Name</label>
+                    <input ng-model="newCustomer.nickName" required>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Full Name</label>
+                    <input ng-model="newCustomer.fullName" required>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Birth Date</label>
+                    <md-datepicker ng-model="newCustomer.birthDate" required></md-datepicker>
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Facebook</label>
+                    <input ng-model="newCustomer.facebook" required>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Phone</label>
+                    <input ng-model="newCustomer.phone" placeholder="0880880999"
+                           required ng-pattern="/^[0-9]{10}$/" md-maxlength="10">
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <label>Address</label>
+                <textarea ng-model="newCustomer.address" md-maxlength="255" rows="4" required></textarea>
+            </md-input-container>
+            <md-dialog-actions layout="row">
+                <md-button class="md-raised" ng-click="answer('OK')">
+                    OK
+                </md-button>
+                <md-button class="md-raised" ng-click="answer('Cancel')">
+                    Cancel
+                </md-button>
+            </md-dialog-actions>
+
+        </form>
+    </div>
+</md-content>

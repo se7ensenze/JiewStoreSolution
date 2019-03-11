@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>Jiew Store !!!</title>
+    <link href="Content/app.css" rel="stylesheet" />
+    <link href="Content/angular-material.min.css" rel="stylesheet" />
+</head>
+
+<body ng-app="myApp" layout="column" ng-cloak>
+    <md-nav-bar md-no-ink-bar="disableInkBar" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-sref="home">
+            <img src="Content/images/logo.png" style="width:166px;" />
+        </md-nav-item>
+        <md-nav-item md-nav-sref="customers">
+            Customer
+        </md-nav-item>
+        <md-nav-item md-nav-sref="newCustomer">
+            New Customer
+        </md-nav-item>
+        <md-nav-item md-nav-sref="newOrder">
+            New Order
+        </md-nav-item>
+        <md-nav-item md-nav-sref="redeem">
+            Redeem
+        </md-nav-item>
+        <md-nav-item md-nav-sref="parameters">
+            Parameters
+        </md-nav-item>
+    </md-nav-bar>
+    <ui-view flex layout="row"></ui-view>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-aria.min.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <script src="Scripts/services/customerService.js"></script>
+    <script src="Scripts/services/parameterService.js"></script>
+    <script src="Scripts/controller/customerController.js"></script>
+    <script src="Scripts/controller/newCustomerController.js"></script>
+    <script src="Scripts/controller/redeemController.js"></script>
+    <script src="Scripts/controller/newOrderController.js"></script>
+    <script src="Scripts/controller/parameterController.js"></script>
+</body>
+</html>

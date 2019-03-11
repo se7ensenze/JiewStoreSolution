@@ -1,0 +1,37 @@
+﻿<md-content ng-controller="newOrderController" 
+            class="md-padding" 
+            layout-xs="column" layout="row" 
+            layout-align="center center"
+            flex>
+    <div flex-xs flex-gt-xs="60" layout="column" layout-align="center center">
+        <md-card style="width:500px">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Top up by Amount</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form>
+                <div class="md-padding" layout-align="center">
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Code</label>
+                            <input ng-model="code" ng-blur="getCodeInfo()">
+                            <div style="padding:5px" ng-show="codeInfo != ''">{{codeInfo}}</div>
+                        </md-input-container>
+                    </div>
+                    <div layout="column">
+                        <md-input-container flex="100">
+                            <label>Amount</label>
+                            <input ng-model="amount">
+                        </md-input-container>
+                    </div>
+                    <md-card-actions layout="row" layout-align="center">
+                        <md-button class="md-primary md-raised" type="button" ng-click="addBuyAmount()">Add Buy Amount</md-button>
+                    </md-card-actions>
+                    <div>{{message}}</div>
+                </div>
+            </form>
+
+        </md-card>
+    </div>
+</md-content>
